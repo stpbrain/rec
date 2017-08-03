@@ -1,0 +1,204 @@
+<?php
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+$to = "stpbtain@gmail.com";
+$sub = "mensaje prueba";
+$m = "Q pasa mensaje prueba";
+$cabeceras = 'From: webmaster@example.com' . "\r\n" .
+    'Reply-To: webmaster@example.com' . "\r\n" .
+    'X-Mailer: PHP/5.5' ;
+
+ $envio = mail($to,$sub,$m, $cabeceras);
+
+  if($envio){ 
+         echo "enviado";
+  }
+}
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cotizaciones</title>
+	  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+
+ <nav class="navbar navbar-default topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <p class="navbar-brand topnav" >Chapitas Y Recuerdos</p>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="../">Volver</a>
+                    </li>
+                   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+<form action="cotizaciones.php" method="POST" class="form-horizontal " >
+<fieldset  >
+
+<!-- Form Name -->
+<legend >Cotiza tu Producto</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="nombre">Ingrese su Nombre</label>  
+  <div class="col-md-2">
+  <input id="nombre" name="nombre" type="text" placeholder="nombre" class="form-control input-md" required=""> 
+  </div>
+
+  
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="email">Ingrese su correo</label>  
+  <div class="col-md-2">
+  <input id="email" name="email" type="email" placeholder="email" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="telefono">Ingrese Teléfono de contacto</label>  
+  <div class="col-md-2">
+  <input id="telefono" name="telefono" type="text" placeholder="Ingrese celular" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Select Multiple -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="productos">Ingrese Tipo Producto</label>
+  <div class="col-md-2">
+    <select id="productos" name="productos" class="form-control" >
+      <option value="1">Chapitas </option>
+      <option value="2">Llaveros </option>
+      <option value="3">Lapices </option>
+      <option value="4">Tarjeta de Presentacion </option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-2 control-label" for="productos">Ingrese Tamaño del Producto</label>
+  <div class="col-md-2">
+    <select id="productos" name="productos" class="form-control" >
+      <option value="1">56mm </option>
+      <option value="2">44mm </option>
+      <option value="3">25mm </option>
+      
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="cantidad">Ingrese Cantidad de Producto</label>  
+  <div class="col-md-1">
+  <input id="cantidad" name="cantidad" type="text" placeholder="Cantidad" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+
+
+
+<!-- Multiple Radios -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="urgencia">Modo de Compra</label>
+  <div class="col-md-2">
+  <div class="radio">
+    <label for="urgencia-0">
+      <input type="radio" name="urgencia" id="urgencia-0" value="1" checked="checked">
+      Modo Normal (4 días)
+    </label>
+	</div>
+  <div class="radio">
+    <label for="urgencia-1">
+      <input type="radio" name="urgencia" id="urgencia-1" value="2">
+      Express (1 día, recargo adicional)
+    </label>
+	</div>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="lugar">Lugar de entrega</label>
+  <div class="col-md-2">
+    <select id="lugar" name="lugar" class="form-control">
+      <option value="1">Seleccione Lugar de Entrega</option>
+      <option value="2">Metro Santa Ana (L1)</option>
+      <option value="3">Metro Moneda (L2)</option>
+      <option value="4">Elisa Correa (L4)</option>
+      <option value="5">Otro</option>
+    </select>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="comentarios">Comentarios adicionales</label>
+  <div class="col-md-2">                     
+    <textarea class="form-control" id="comentarios" name="comentarios" placeholder=" Comentario adicional "></textarea>
+    <p style="color: red">Toda Entrega son con previa confirmación y coordinación.</p>
+  </div>
+</div>
+
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="enviar"></label>
+  <div class="col-md-2">
+    <input type="submit" id="enviar" name="enviar" class="btn btn-success" value="Cotizar"></input>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+
+
+</body>
+</html>			
